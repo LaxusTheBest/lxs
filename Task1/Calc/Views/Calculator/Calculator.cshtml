@@ -1,0 +1,41 @@
+﻿@model Calc.Models.CalculatorModel
+@{
+    Layout = null;
+
+}
+@Styles.Render("~/Content/css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculator</title>
+</head>
+    <body>
+        @if (ViewBag.NotValidMessage != null)
+        {
+            <div class="not-valid">
+                @ViewBag.NotValidMessage
+            </div>
+        }
+
+        @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post))
+        {
+            @Html.Label("X")
+            @Html.TextBoxFor(p => p.X, new { @placeholder = "1", @class="text-as-number" })
+            @:<br />
+            @Html.Label("Y")
+            @Html.TextBoxFor(p => p.Y, new { @placeholder = "1" })
+            @:<br />
+            @:<p> @Html.RadioButtonFor(p => p.SelectedMethod, "Sum", new { @checked = true }) Cумма</p>
+            @:<p> @Html.RadioButtonFor(p => p.SelectedMethod, "Prod") Произведение</p>
+            @:<input type="submit" value="Посчитать" />
+            @:<br />
+            @:<textarea class="text-area" name ="logs" readonly="readonly" cols="100" rows="10" maxlength="1000" >@ViewBag.logs</textarea>
+
+        }
+
+
+    </body>
+</html>
