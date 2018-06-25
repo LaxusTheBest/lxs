@@ -36,7 +36,7 @@
                 }
                 else
                 {
-                    ViewBag.NotValidMessage = "Данные не прошли валидацию";
+                    ViewBag.NotValidMessage = "Данные не прошли валидацию";//todo pn строки-сообщения - в ресурсы
                     ViewBag.logs = logs;
                     return this.View();
                 }
