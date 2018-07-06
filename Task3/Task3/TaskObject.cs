@@ -655,68 +655,68 @@
             }
         }
 
-        //public static void Test()
-        //{
-        //    string str = string.Empty;
+        public static void Test()
+        {
+            string str = string.Empty;
 
-        //    StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-        //    Stopwatch stopwatch = new Stopwatch();
-        //    var times = new int[] { 10, 100, 1000, 10000, 100000, 200000, 300000 };
-        //    int tries = 70;
-        //    Dictionary<int, double> resultsString = new Dictionary<int, double>();
-        //    Dictionary<int, double> resultsBuilder = new Dictionary<int, double>();
+            Stopwatch stopwatch = new Stopwatch();
+            var times = new int[] { 10, 100, 1000, 10000, 100000, 200000, 300000 };
+            int tries = 70;
+            Dictionary<int, double> resultsString = new Dictionary<int, double>();
+            Dictionary<int, double> resultsBuilder = new Dictionary<int, double>();
 
-        //    foreach (var item in times)
-        //    {
-        //        resultsString.Add(item, Zero);
-        //        resultsBuilder.Add(item, Zero);
-        //    }
+            foreach (var item in times)
+            {
+                resultsString.Add(item, Zero);
+                resultsBuilder.Add(item, Zero);
+            }
 
-        //    for (int j = 0; j < tries; j++)
-        //    {
-        //        foreach (var time in times)
-        //        {
-        //            stopwatch.Reset();
-        //            str = string.Empty;
-        //            sb.Clear();
+            for (int j = 0; j < tries; j++)
+            {
+                foreach (var time in times)
+                {
+                    stopwatch.Reset();
+                    str = string.Empty;
+                    sb.Clear();
 
-        //            Console.Write($"{time,7}");
+                    Console.Write($"{time,7}");
 
-        //            stopwatch.Start();
-        //            for (int i = 0; i < time; i++)
-        //            {
-        //                str += "*";
-        //            }
+                    stopwatch.Start();
+                    for (int i = 0; i < time; i++)
+                    {
+                        str += "*";
+                    }
 
-        //            stopwatch.Stop();
-        //            resultsString[time] = resultsString[time] == 0 ?
-        //                stopwatch.Elapsed.TotalSeconds : (resultsString[time] + stopwatch.Elapsed.TotalSeconds) / 2;
+                    stopwatch.Stop();
+                    resultsString[time] = resultsString[time] == 0 ?
+                        stopwatch.Elapsed.TotalSeconds : (resultsString[time] + stopwatch.Elapsed.TotalSeconds) / 2;
 
-        //            stopwatch.Restart();
-        //            for (int i = 0; i < time; i++)
-        //            {
-        //                sb.Append("*");
-        //            }
+                    stopwatch.Restart();
+                    for (int i = 0; i < time; i++)
+                    {
+                        sb.Append("*");
+                    }
 
-        //            stopwatch.Stop();
+                    stopwatch.Stop();
 
-        //            resultsBuilder[time] = resultsBuilder[time] == 0 ?
-        //                stopwatch.Elapsed.TotalSeconds : (resultsBuilder[time] + stopwatch.Elapsed.TotalSeconds) / 2;
-        //        }
-        //    }
-        //    using (StreamWriter sw = new StreamWriter("String-StringBulderResults.txt", true))
-        //    {
-        //        sw.WriteLine("After 100 attempts for the values of the array taken as the number of adding elements in the resulting row, the resulting average values are:");
-        //        sw.WriteLine("{0,10} {1,12} {2,15}", "N", "String", "String builder");
-        //        sw.WriteLine("______________________________________________________");
+                    resultsBuilder[time] = resultsBuilder[time] == 0 ?
+                        stopwatch.Elapsed.TotalSeconds : (resultsBuilder[time] + stopwatch.Elapsed.TotalSeconds) / 2;
+                }
+            }
+            using (StreamWriter sw = new StreamWriter("String-StringBulderResults.txt", true))
+            {
+                sw.WriteLine("After 100 attempts for the values of the array taken as the number of adding elements in the resulting row, the resulting average values are:");
+                sw.WriteLine("{0,10} {1,12} {2,15}", "N", "String", "String builder");
+                sw.WriteLine("______________________________________________________");
 
-        //        foreach (var item in times)
-        //        {
-        //            sw.WriteLine($"{item,10}    {resultsString[item],12}    {resultsBuilder[item],15}");
-        //        }
-        //    }
-        //}
+                foreach (var item in times)
+                {
+                    sw.WriteLine($"{item,10}    {resultsString[item],12}    {resultsBuilder[item],15}");
+                }
+            }
+        }
 
         /// <summary>
         /// Writes logs in logfile "Logs.txt" and shows message to user
