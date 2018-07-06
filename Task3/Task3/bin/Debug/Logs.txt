@@ -1,0 +1,18 @@
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 22:38:47   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 37
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 22:40:12   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 37
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 22:40:12   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 37
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 22:40:13   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 37
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 22:40:13   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 37
+ErrorMessage: Входная строка имела неверный формат. Time:05.07.2018 23:43:38   StackTrace:    в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Double.Parse(String s)
+   в Task3.TaskObject.SquareCalc() в C:\Users\Suh\source\repos\Task3\Task3\TaskObject.cs:строка 94
