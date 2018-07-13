@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FileManager.File">
+    <Position X="12.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FileManager.File.FileTypes">
+        <TypeIdentifier>
+          <NewMemberFileName>File.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <AssociationLine Name="Tags" Type="FileManager.Tag">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.696" Y="0.076" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAgAAACAIAAAQAACAAAEAAAAAAQAAAAAA=</HashCode>
+      <FileName>File.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MetaData" />
+      <Property Name="Tags" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FileManager.FileRepository">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAAAAAAAAAEAAAQAAAAAAAAAQQkQEAAgABAA=</HashCode>
+      <FileName>FileRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PermissionList" />
+      <Field Name="AdminPermissons" />
+      <Field Name="UserPermissions" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FileManager.Permission">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileManager.Admin">
+    <Position X="6.75" Y="6.25" Width="1.5" />
+    <AssociationLine Name="fileRepository" Type="FileManager.FileRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="6.562" />
+        <Point X="8.855" Y="6.562" />
+        <Point X="8.855" Y="3.155" />
+        <Point X="9.75" Y="3.155" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="userRepository" Type="FileManager.UserRepository" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="7.438" />
+        <Point X="9.418" Y="7.438" />
+        <Point X="9.418" Y="5.906" />
+        <Point X="10" Y="5.906" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.201" Y="-1.895" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAA=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="fileRepository" />
+      <Property Name="userRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FileManager.FileMetaInformation">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAkAAAAAAAgAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>FileMetaInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileManager.Tag">
+    <Position X="16" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Tag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileManager.User">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FileManager.User.Genders">
+        <TypeIdentifier>
+          <NewMemberFileName>User.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAgACAAAAAAAQABAAAAAACEAAQAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileManager.UserRepository">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAA=</HashCode>
+      <FileName>UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
