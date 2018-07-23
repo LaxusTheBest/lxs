@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileManager
 {
-    public interface IBaseService2<T> where T : class, new()
+    public interface IBaseService2<T> where T : class, new() //todo pn так ты выбери один из интерфейсов :)
     {
         T Get(int id);
 

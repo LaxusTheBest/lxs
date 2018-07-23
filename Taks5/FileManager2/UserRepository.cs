@@ -26,7 +26,7 @@ namespace FileManager
         public User GetUser(string login) { return null; }
         public void RemoveUser(User user) { }
         public void CreateUser() { }
-        public void SaveChanges(int id) { }
+        public void SaveChanges(int id) { } //todo pn в качестве заглушек принято использовать throw new NotImplementedException();
 
         //IBaseService methods
         #region
@@ -40,10 +40,10 @@ namespace FileManager
                 }
             }
 
-            throw new NotImplementedException("Не удалось найти пользователя.");
-        }
+            throw new NotImplementedException("Не удалось найти пользователя.");///todo pn неправильно выбран тип исключения (либо базовое, либо собственное, но точно не этот)
+		}
 
-        public List<T> GetAll<T>() where T : class, new()
+		public List<T> GetAll<T>() where T : class, new()
         {
             List<T> res = new List<T>();
             foreach (User item in array)
