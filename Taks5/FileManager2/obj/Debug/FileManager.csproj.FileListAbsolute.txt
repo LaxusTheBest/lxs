@@ -1,0 +1,12 @@
+C:\Users\Suh\source\repos\FileManager2\FileManager2\bin\Debug\FileManager2.dll
+C:\Users\Suh\source\repos\FileManager2\FileManager2\bin\Debug\FileManager2.pdb
+C:\Users\Suh\source\repos\FileManager2\FileManager2\obj\Debug\FileManager.csprojAssemblyReference.cache
+C:\Users\Suh\source\repos\FileManager2\FileManager2\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+C:\Users\Suh\source\repos\FileManager2\FileManager2\obj\Debug\FileManager2.dll
+C:\Users\Suh\source\repos\FileManager2\FileManager2\obj\Debug\FileManager2.pdb
+H:\Taks5\FileManager2\obj\Debug\FileManager.csprojAssemblyReference.cache
+H:\Taks5\FileManager2\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+H:\Taks5\FileManager2\obj\Debug\FileManager2.dll
+H:\Taks5\FileManager2\obj\Debug\FileManager2.pdb
+H:\Taks5\FileManager2\bin\Debug\FileManager2.dll
+H:\Taks5\FileManager2\bin\Debug\FileManager2.pdb
