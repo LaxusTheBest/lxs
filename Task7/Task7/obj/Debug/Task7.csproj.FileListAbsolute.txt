@@ -1,0 +1,14 @@
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\bin\Debug\Task7.exe.config
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\bin\Debug\Task7.exe
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\bin\Debug\Task7.pdb
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\obj\Debug\Task7.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\obj\Debug\Task7.csproj.CoreCompileInputs.cache
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\obj\Debug\Task7.exe
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task7\Task7\obj\Debug\Task7.pdb
+H:\Task7\Task7\bin\Debug\Task7.exe.config
+H:\Task7\Task7\bin\Debug\Task7.exe
+H:\Task7\Task7\bin\Debug\Task7.pdb
+H:\Task7\Task7\obj\Debug\Task7.csprojAssemblyReference.cache
+H:\Task7\Task7\obj\Debug\Task7.csproj.CoreCompileInputs.cache
+H:\Task7\Task7\obj\Debug\Task7.exe
+H:\Task7\Task7\obj\Debug\Task7.pdb

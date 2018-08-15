@@ -1,0 +1,36 @@
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\bin\Debug\Task6.exe.config
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\bin\Debug\Task6.exe
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\bin\Debug\Task6.pdb
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.csproj.CoreCompileInputs.cache
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.exe
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.pdb
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\bin\Debug\StyleCop.dll
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\bin\Debug\StyleCop.xml
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.Properties.Resources.resources
+C:\Users\Ирина\Documents\Visual Studio 2017\Projects\Task6\Task6\obj\Debug\Task6.csproj.GenerateResource.Cache
+H:\Task6\Task6\bin\Debug\mssp7en.dll
+H:\Task6\Task6\bin\Debug\mssp7en.lex
+H:\Task6\Task6\bin\Debug\Task6.exe.config
+H:\Task6\Task6\bin\Debug\Task6.exe
+H:\Task6\Task6\bin\Debug\Task6.pdb
+H:\Task6\Task6\bin\Debug\StyleCop.CSharp.dll
+H:\Task6\Task6\bin\Debug\StyleCop.CSharp.Rules.dll
+H:\Task6\Task6\bin\Debug\StyleCop.dll
+H:\Task6\Task6\bin\Debug\StyleCop.xml
+H:\Task6\Task6\bin\Debug\StyleCop.CSharp.xml
+H:\Task6\Task6\bin\Debug\StyleCop.CSharp.Rules.xml
+H:\Task6\Task6\bin\Debug\de-DE\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\en-GB\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\es-MX\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\fr-FR\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\pl-PL\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\pt-BR\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\bin\Debug\ru-RU\StyleCop.CSharp.Rules.resources.dll
+H:\Task6\Task6\obj\Debug\Task6.csprojAssemblyReference.cache
+H:\Task6\Task6\obj\Debug\Task6.Properties.Resources.resources
+H:\Task6\Task6\obj\Debug\Task6.csproj.GenerateResource.cache
+H:\Task6\Task6\obj\Debug\Task6.csproj.CoreCompileInputs.cache
+H:\Task6\Task6\obj\Debug\Task6.csproj.CopyComplete
+H:\Task6\Task6\obj\Debug\Task6.exe
+H:\Task6\Task6\obj\Debug\Task6.pdb
