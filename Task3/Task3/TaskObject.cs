@@ -11,7 +11,7 @@
     /// <summary>
     /// Static class which contains methods to work with
     /// </summary>
-    public static class TaskObject
+    public static class TaskObject//todo pn антипаттерн "божественный объект"
     {
         /// <summary>
         /// String which stops method's work
@@ -152,8 +152,8 @@
                     {
                         for (int j = 0; j < i; j++)
                         {
-                            Console.Write("*");
-                        }
+                            Console.Write("*");//todo pn хардкод
+						}
 
                         Console.WriteLine();
                         i++;
@@ -420,7 +420,7 @@
                     {
                         if (array[i] > array[j])
                         {
-                            int temp = array[i];
+                            int temp = array[i];//todo pn пузырек?
                             array[i] = array[j];
                             array[j] = temp;
                         }
@@ -563,8 +563,8 @@
                 {
                     for (int j = 0; j < colsCount; j++)
                     {
-                        array[i, j] = rnd.Next(-50, 50);
-                        sum = ((i + j) % 2 == 0) ? array[i, j] + sum : sum;
+                        array[i, j] = rnd.Next(-50, 50);//todo pn хардкод
+						sum = ((i + j) % 2 == 0) ? array[i, j] + sum : sum;
                         Console.Write($"{array[i, j],4} ");
                     }
 
@@ -600,9 +600,9 @@
                     break;
                 }
 
-                char[] spitters = new char[] { ',', '.', ' ' };
+                char[] spitters = new char[] { ',', '.', ' ' };//todo pn хардкод
 
-                var splited = str.Split(spitters, StringSplitOptions.RemoveEmptyEntries);
+				var splited = str.Split(spitters, StringSplitOptions.RemoveEmptyEntries);
 
                 StringBuilder sb = Enumerable.Range(Zero, splited.Length).Aggregate(new StringBuilder(), (x, q) => x.Append(splited[q]));
 
