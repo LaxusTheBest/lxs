@@ -1,0 +1,39 @@
+﻿@model FileManager.File
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Styles.Render("~/Content/css")
+
+
+<div class="d-flex justify-content-center">
+    <form scroll="Yes" class="form-shadow bg-light mt-1 rounded w-50 d-flex justify-content-center flex-column" id="regform" name="regform">
+        <h1 class="text-info text-center w-auto">Create file</h1>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group w-100">
+            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FileName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FileName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPublic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsPublic)
+                @Html.ValidationMessageFor(model => model.IsPublic, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </form>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

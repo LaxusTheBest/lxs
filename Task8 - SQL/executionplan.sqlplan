@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ShowPlanXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.5" Build="13.0.4001.0" xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementCompId="1" StatementEstRows="3" StatementId="1" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.010203" StatementText="/* &#xD;&#xA;1&#xD;&#xA;*/&#xD;&#xA;	SELECT ORDERID, SHIPPEDDATE, SHIPVIA FROM Northwind.Orders  WHERE ShippedDate &gt;= {d' 1998-05-06'} AND ShipVia&gt;=2" StatementType="SELECT" ParameterizedText="(@1 datetime,@2 tinyint)SELECT [ORDERID],[SHIPPEDDATE],[SHIPVIA] FROM [Northwind].[Orders] WHERE [ShippedDate]&gt;=@1 AND [ShipVia]&gt;=@2" QueryHash="0xF36DC3886177802F" QueryPlanHash="0x1B5B040561AD8025" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="24" CompileTime="1" CompileCPU="1" CompileMemory="264">
+            <MemoryGrantInfo SerialRequiredMemory="0" SerialDesiredMemory="0" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="23" EstimateCPU="1.254E-05" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="3" LogicalOp="Inner Join" NodeId="0" Parallel="false" PhysicalOp="Nested Loops" EstimatedTotalSubtreeCost="0.010203">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShipVia" />
+              </OutputList>
+              <NestedLoops Optimized="false">
+                <OuterReferences>
+                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                </OuterReferences>
+                <RelOp AvgRowSize="19" EstimateCPU="0.0001603" EstimateIO="0.003125" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="3" EstimatedRowsRead="3" LogicalOp="Index Seek" NodeId="1" Parallel="false" PhysicalOp="Index Seek" EstimatedTotalSubtreeCost="0.0032853" TableCardinality="830">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                  </OutputList>
+                  <IndexScan Ordered="true" ScanDirection="FORWARD" ForcedIndex="false" ForceSeek="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Orders]" Index="[ShippedDate]" IndexKind="NonClustered" Storage="RowStore" />
+                    <SeekPredicates>
+                      <SeekPredicateNew>
+                        <SeekKeys>
+                          <StartRange ScanType="GE">
+                            <RangeColumns>
+                              <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                            </RangeColumns>
+                            <RangeExpressions>
+                              <ScalarOperator ScalarString="'1998-05-06 00:00:00.000'">
+                                <Const ConstValue="'1998-05-06 00:00:00.000'" />
+                              </ScalarOperator>
+                            </RangeExpressions>
+                          </StartRange>
+                        </SeekKeys>
+                      </SeekPredicateNew>
+                    </SeekPredicates>
+                  </IndexScan>
+                </RelOp>
+                <RelOp AvgRowSize="11" EstimateCPU="0.0001581" EstimateIO="0.003125" EstimateRebinds="2" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="2.50998" LogicalOp="Clustered Index Seek" NodeId="3" Parallel="false" PhysicalOp="Clustered Index Seek" EstimatedTotalSubtreeCost="0.00690521" TableCardinality="830">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShipVia" />
+                  </OutputList>
+                  <IndexScan Lookup="true" Ordered="true" ScanDirection="FORWARD" ForcedIndex="false" ForceSeek="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShipVia" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Orders]" Index="[PK_Orders]" TableReferenceId="-1" IndexKind="Clustered" Storage="RowStore" />
+                    <SeekPredicates>
+                      <SeekPredicateNew>
+                        <SeekKeys>
+                          <Prefix ScanType="EQ">
+                            <RangeColumns>
+                              <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                            </RangeColumns>
+                            <RangeExpressions>
+                              <ScalarOperator ScalarString="[master].[Northwind].[Orders].[OrderID]">
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                                </Identifier>
+                              </ScalarOperator>
+                            </RangeExpressions>
+                          </Prefix>
+                        </SeekKeys>
+                      </SeekPredicateNew>
+                    </SeekPredicates>
+                    <Predicate>
+                      <ScalarOperator ScalarString="[master].[Northwind].[Orders].[ShipVia]&gt;=(2)">
+                        <Compare CompareOp="GE">
+                          <ScalarOperator>
+                            <Identifier>
+                              <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShipVia" />
+                            </Identifier>
+                          </ScalarOperator>
+                          <ScalarOperator>
+                            <Const ConstValue="(2)" />
+                          </ScalarOperator>
+                        </Compare>
+                      </ScalarOperator>
+                    </Predicate>
+                  </IndexScan>
+                </RelOp>
+              </NestedLoops>
+            </RelOp>
+            <ParameterList>
+              <ColumnReference Column="@2" ParameterDataType="tinyint" ParameterCompiledValue="(2)" />
+              <ColumnReference Column="@1" ParameterDataType="datetime" ParameterCompiledValue="'1998-05-06 00:00:00.000'" />
+            </ParameterList>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="2" StatementEstRows="21" StatementId="2" StatementOptmLevel="TRIVIAL" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0033072" StatementText="&#xD;&#xA;&#xD;&#xA;SELECT OrderID, ShippedDate = CASE WHEN ShippedDate IS NULL THEN 'Not Shipped' END FROM Northwind.Orders Where ShippedDate is NULL" StatementType="SELECT" QueryHash="0xCF870FFCE70E06BB" QueryPlanHash="0xA22386F415D81EFF" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="16" CompileTime="0" CompileCPU="0" CompileMemory="256">
+            <MemoryGrantInfo SerialRequiredMemory="0" SerialDesiredMemory="0" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="20" EstimateCPU="2.1E-06" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" LogicalOp="Compute Scalar" NodeId="0" Parallel="false" PhysicalOp="Compute Scalar" EstimatedTotalSubtreeCost="0.0033072">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                <ColumnReference Column="Expr1002" />
+              </OutputList>
+              <ComputeScalar>
+                <DefinedValues>
+                  <DefinedValue>
+                    <ColumnReference Column="Expr1002" />
+                    <ScalarOperator ScalarString="CASE WHEN [master].[Northwind].[Orders].[ShippedDate] IS NULL THEN 'Not Shipped' ELSE NULL END">
+                      <IF>
+                        <Condition>
+                          <ScalarOperator>
+                            <Compare CompareOp="IS">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="NULL" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                        </Condition>
+                        <Then>
+                          <ScalarOperator>
+                            <Const ConstValue="'Not Shipped'" />
+                          </ScalarOperator>
+                        </Then>
+                        <Else>
+                          <ScalarOperator>
+                            <Const ConstValue="NULL" />
+                          </ScalarOperator>
+                        </Else>
+                      </IF>
+                    </ScalarOperator>
+                  </DefinedValue>
+                </DefinedValues>
+                <RelOp AvgRowSize="19" EstimateCPU="0.0001801" EstimateIO="0.003125" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" EstimatedRowsRead="21" LogicalOp="Index Seek" NodeId="1" Parallel="false" PhysicalOp="Index Seek" EstimatedTotalSubtreeCost="0.0033051" TableCardinality="830">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                  </OutputList>
+                  <IndexScan Ordered="true" ScanDirection="FORWARD" ForcedIndex="false" ForceSeek="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Orders]" Index="[ShippedDate]" IndexKind="NonClustered" Storage="RowStore" />
+                    <SeekPredicates>
+                      <SeekPredicateNew>
+                        <SeekKeys>
+                          <Prefix ScanType="EQ">
+                            <RangeColumns>
+                              <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                            </RangeColumns>
+                            <RangeExpressions>
+                              <ScalarOperator ScalarString="NULL">
+                                <Const ConstValue="NULL" />
+                              </ScalarOperator>
+                            </RangeExpressions>
+                          </Prefix>
+                        </SeekKeys>
+                      </SeekPredicateNew>
+                    </SeekPredicates>
+                  </IndexScan>
+                </RelOp>
+              </ComputeScalar>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="3" StatementEstRows="21" StatementId="3" StatementOptmLevel="TRIVIAL" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0033072" StatementText="&#xD;&#xA;&#xD;&#xA;SELECT OrderID as &quot;Order Number&quot;, 'Shipped date' = CASE WHEN ShippedDate IS NULL THEN 'Not Shipped' END FROM Northwind.Orders WHERE (ShippedDate &gt; {d' 1998-05-06'} OR ShippedDate is NULL)" StatementType="SELECT" QueryHash="0xC48AD73447880DEF" QueryPlanHash="0xFC3D96F70405024F" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="32" CompileTime="0" CompileCPU="0" CompileMemory="272">
+            <MemoryGrantInfo SerialRequiredMemory="16" SerialDesiredMemory="24" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="20" EstimateCPU="2.1E-06" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" LogicalOp="Compute Scalar" NodeId="0" Parallel="false" PhysicalOp="Compute Scalar" EstimatedTotalSubtreeCost="0.0033072">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                <ColumnReference Column="Expr1002" />
+              </OutputList>
+              <ComputeScalar>
+                <DefinedValues>
+                  <DefinedValue>
+                    <ColumnReference Column="Expr1002" />
+                    <ScalarOperator ScalarString="CASE WHEN [master].[Northwind].[Orders].[ShippedDate] IS NULL THEN 'Not Shipped' ELSE NULL END">
+                      <IF>
+                        <Condition>
+                          <ScalarOperator>
+                            <Compare CompareOp="IS">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="NULL" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                        </Condition>
+                        <Then>
+                          <ScalarOperator>
+                            <Const ConstValue="'Not Shipped'" />
+                          </ScalarOperator>
+                        </Then>
+                        <Else>
+                          <ScalarOperator>
+                            <Const ConstValue="NULL" />
+                          </ScalarOperator>
+                        </Else>
+                      </IF>
+                    </ScalarOperator>
+                  </DefinedValue>
+                </DefinedValues>
+                <RelOp AvgRowSize="19" EstimateCPU="0.0001801" EstimateIO="0.003125" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" EstimatedRowsRead="21" LogicalOp="Inner Join" NodeId="1" Parallel="false" PhysicalOp="Nested Loops" EstimatedTotalSubtreeCost="0.0033051" TableCardinality="830">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                  </OutputList>
+                  <NestedLoops Optimized="false">
+                    <OuterReferences>
+                      <ColumnReference Column="Expr1009" />
+                      <ColumnReference Column="Expr1010" />
+                      <ColumnReference Column="Expr1011" />
+                    </OuterReferences>
+                    <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="2" LogicalOp="Merge Interval" NodeId="2" Parallel="false" PhysicalOp="Merge Interval" EstimatedTotalSubtreeCost="0">
+                      <OutputList>
+                        <ColumnReference Column="Expr1009" />
+                        <ColumnReference Column="Expr1010" />
+                        <ColumnReference Column="Expr1011" />
+                      </OutputList>
+                      <MergeInterval>
+                        <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="2" LogicalOp="TopN Sort" NodeId="3" Parallel="false" PhysicalOp="Sort" EstimatedTotalSubtreeCost="0">
+                          <OutputList>
+                            <ColumnReference Column="Expr1009" />
+                            <ColumnReference Column="Expr1010" />
+                            <ColumnReference Column="Expr1011" />
+                            <ColumnReference Column="Expr1012" />
+                            <ColumnReference Column="Expr1013" />
+                            <ColumnReference Column="Expr1014" />
+                          </OutputList>
+                          <MemoryFractions Input="1" Output="1" />
+                          <TopSort Distinct="false" Rows="2">
+                            <OrderBy>
+                              <OrderByColumn Ascending="false">
+                                <ColumnReference Column="Expr1012" />
+                              </OrderByColumn>
+                              <OrderByColumn Ascending="true">
+                                <ColumnReference Column="Expr1013" />
+                              </OrderByColumn>
+                              <OrderByColumn Ascending="true">
+                                <ColumnReference Column="Expr1009" />
+                              </OrderByColumn>
+                              <OrderByColumn Ascending="false">
+                                <ColumnReference Column="Expr1014" />
+                              </OrderByColumn>
+                            </OrderBy>
+                            <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="2" LogicalOp="Compute Scalar" NodeId="4" Parallel="false" PhysicalOp="Compute Scalar" EstimatedTotalSubtreeCost="0">
+                              <OutputList>
+                                <ColumnReference Column="Expr1009" />
+                                <ColumnReference Column="Expr1010" />
+                                <ColumnReference Column="Expr1011" />
+                                <ColumnReference Column="Expr1012" />
+                                <ColumnReference Column="Expr1013" />
+                                <ColumnReference Column="Expr1014" />
+                              </OutputList>
+                              <ComputeScalar>
+                                <DefinedValues>
+                                  <DefinedValue>
+                                    <ColumnReference Column="Expr1012" />
+                                    <ScalarOperator ScalarString="((4)&amp;[Expr1011]) = (4) AND NULL = [Expr1009]">
+                                      <Logical Operation="AND">
+                                        <ScalarOperator>
+                                          <Compare CompareOp="IS">
+                                            <ScalarOperator>
+                                              <Arithmetic Operation="BIT_AND">
+                                                <ScalarOperator>
+                                                  <Const ConstValue="(4)" />
+                                                </ScalarOperator>
+                                                <ScalarOperator>
+                                                  <Identifier>
+                                                    <ColumnReference Column="Expr1011" />
+                                                  </Identifier>
+                                                </ScalarOperator>
+                                              </Arithmetic>
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Const ConstValue="(4)" />
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                        <ScalarOperator>
+                                          <Compare CompareOp="IS">
+                                            <ScalarOperator>
+                                              <Const ConstValue="NULL" />
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Column="Expr1009" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                      </Logical>
+                                    </ScalarOperator>
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Column="Expr1013" />
+                                    <ScalarOperator ScalarString="(4)&amp;[Expr1011]">
+                                      <Arithmetic Operation="BIT_AND">
+                                        <ScalarOperator>
+                                          <Const ConstValue="(4)" />
+                                        </ScalarOperator>
+                                        <ScalarOperator>
+                                          <Identifier>
+                                            <ColumnReference Column="Expr1011" />
+                                          </Identifier>
+                                        </ScalarOperator>
+                                      </Arithmetic>
+                                    </ScalarOperator>
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Column="Expr1014" />
+                                    <ScalarOperator ScalarString="(16)&amp;[Expr1011]">
+                                      <Arithmetic Operation="BIT_AND">
+                                        <ScalarOperator>
+                                          <Const ConstValue="(16)" />
+                                        </ScalarOperator>
+                                        <ScalarOperator>
+                                          <Identifier>
+                                            <ColumnReference Column="Expr1011" />
+                                          </Identifier>
+                                        </ScalarOperator>
+                                      </Arithmetic>
+                                    </ScalarOperator>
+                                  </DefinedValue>
+                                </DefinedValues>
+                                <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="2" LogicalOp="Concatenation" NodeId="5" Parallel="false" PhysicalOp="Concatenation" EstimatedTotalSubtreeCost="0">
+                                  <OutputList>
+                                    <ColumnReference Column="Expr1009" />
+                                    <ColumnReference Column="Expr1010" />
+                                    <ColumnReference Column="Expr1011" />
+                                  </OutputList>
+                                  <Concat>
+                                    <DefinedValues>
+                                      <DefinedValue>
+                                        <ColumnReference Column="Expr1009" />
+                                        <ColumnReference Column="Expr1004" />
+                                        <ColumnReference Column="Expr1007" />
+                                      </DefinedValue>
+                                      <DefinedValue>
+                                        <ColumnReference Column="Expr1010" />
+                                        <ColumnReference Column="Expr1005" />
+                                        <ColumnReference Column="Expr1008" />
+                                      </DefinedValue>
+                                      <DefinedValue>
+                                        <ColumnReference Column="Expr1011" />
+                                        <ColumnReference Column="Expr1003" />
+                                        <ColumnReference Column="Expr1006" />
+                                      </DefinedValue>
+                                    </DefinedValues>
+                                    <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="1" LogicalOp="Compute Scalar" NodeId="6" Parallel="false" PhysicalOp="Compute Scalar" EstimatedTotalSubtreeCost="0">
+                                      <OutputList>
+                                        <ColumnReference Column="Expr1004" />
+                                        <ColumnReference Column="Expr1005" />
+                                        <ColumnReference Column="Expr1003" />
+                                      </OutputList>
+                                      <ComputeScalar>
+                                        <DefinedValues>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1004" />
+                                            <ScalarOperator ScalarString="NULL">
+                                              <Const ConstValue="NULL" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1005" />
+                                            <ScalarOperator ScalarString="NULL">
+                                              <Const ConstValue="NULL" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1003" />
+                                            <ScalarOperator ScalarString="(60)">
+                                              <Const ConstValue="(60)" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                        </DefinedValues>
+                                        <RelOp AvgRowSize="0" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="1" LogicalOp="Constant Scan" NodeId="7" Parallel="false" PhysicalOp="Constant Scan" EstimatedTotalSubtreeCost="0">
+                                          <OutputList />
+                                          <ConstantScan />
+                                        </RelOp>
+                                      </ComputeScalar>
+                                    </RelOp>
+                                    <RelOp AvgRowSize="27" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="1" LogicalOp="Compute Scalar" NodeId="8" Parallel="false" PhysicalOp="Compute Scalar" EstimatedTotalSubtreeCost="0">
+                                      <OutputList>
+                                        <ColumnReference Column="Expr1007" />
+                                        <ColumnReference Column="Expr1008" />
+                                        <ColumnReference Column="Expr1006" />
+                                      </OutputList>
+                                      <ComputeScalar>
+                                        <DefinedValues>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1007" />
+                                            <ScalarOperator ScalarString="'1998-05-06 00:00:00.000'">
+                                              <Const ConstValue="'1998-05-06 00:00:00.000'" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1008" />
+                                            <ScalarOperator ScalarString="NULL">
+                                              <Const ConstValue="NULL" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1006" />
+                                            <ScalarOperator ScalarString="(6)">
+                                              <Const ConstValue="(6)" />
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                        </DefinedValues>
+                                        <RelOp AvgRowSize="0" EstimateCPU="0" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="1" LogicalOp="Constant Scan" NodeId="9" Parallel="false" PhysicalOp="Constant Scan" EstimatedTotalSubtreeCost="0">
+                                          <OutputList />
+                                          <ConstantScan />
+                                        </RelOp>
+                                      </ComputeScalar>
+                                    </RelOp>
+                                  </Concat>
+                                </RelOp>
+                              </ComputeScalar>
+                            </RelOp>
+                          </TopSort>
+                        </RelOp>
+                      </MergeInterval>
+                    </RelOp>
+                    <RelOp AvgRowSize="19" EstimateCPU="0.0001801" EstimateIO="0.003125" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" EstimatedRowsRead="21" LogicalOp="Index Seek" NodeId="10" Parallel="false" PhysicalOp="Index Seek" EstimatedTotalSubtreeCost="0.0033051" TableCardinality="830">
+                      <OutputList>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                      </OutputList>
+                      <IndexScan Ordered="true" ScanDirection="FORWARD" ForcedIndex="false" ForceSeek="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                        <DefinedValues>
+                          <DefinedValue>
+                            <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="OrderID" />
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                          </DefinedValue>
+                        </DefinedValues>
+                        <Object Database="[master]" Schema="[Northwind]" Table="[Orders]" Index="[ShippedDate]" IndexKind="NonClustered" Storage="RowStore" />
+                        <SeekPredicates>
+                          <SeekPredicateNew>
+                            <SeekKeys>
+                              <StartRange ScanType="GT">
+                                <RangeColumns>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                                </RangeColumns>
+                                <RangeExpressions>
+                                  <ScalarOperator ScalarString="[Expr1009]">
+                                    <Identifier>
+                                      <ColumnReference Column="Expr1009" />
+                                    </Identifier>
+                                  </ScalarOperator>
+                                </RangeExpressions>
+                              </StartRange>
+                              <EndRange ScanType="LT">
+                                <RangeColumns>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Orders]" Column="ShippedDate" />
+                                </RangeColumns>
+                                <RangeExpressions>
+                                  <ScalarOperator ScalarString="[Expr1010]">
+                                    <Identifier>
+                                      <ColumnReference Column="Expr1010" />
+                                    </Identifier>
+                                  </ScalarOperator>
+                                </RangeExpressions>
+                              </EndRange>
+                            </SeekKeys>
+                          </SeekPredicateNew>
+                        </SeekPredicates>
+                      </IndexScan>
+                    </RelOp>
+                  </NestedLoops>
+                </RelOp>
+              </ComputeScalar>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="4" StatementEstRows="75" StatementId="4" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0177745" StatementText="&#xD;&#xA;&#xD;&#xA;/* &#xD;&#xA;2&#xD;&#xA;*/&#xD;&#xA;&#xD;&#xA;SELECT ContactName, Country FROM Northwind.Customers WHERE Country NOT IN ('USA','CANADA') ORDER BY ContactName , Country" StatementType="SELECT" QueryHash="0xCE802C79324B424E" QueryPlanHash="0xD49915EFC06B439B" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="16" CompileTime="0" CompileCPU="0" CompileMemory="224">
+            <MemoryGrantInfo SerialRequiredMemory="512" SerialDesiredMemory="544" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="54" EstimateCPU="0.000828826" EstimateIO="0.0112613" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="75" LogicalOp="Sort" NodeId="0" Parallel="false" PhysicalOp="Sort" EstimatedTotalSubtreeCost="0.0177745">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="ContactName" />
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+              </OutputList>
+              <MemoryFractions Input="1" Output="1" />
+              <Sort Distinct="false">
+                <OrderBy>
+                  <OrderByColumn Ascending="true">
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="ContactName" />
+                  </OrderByColumn>
+                  <OrderByColumn Ascending="true">
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OrderByColumn>
+                </OrderBy>
+                <RelOp AvgRowSize="54" EstimateCPU="0.0002571" EstimateIO="0.00534722" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="75" EstimatedRowsRead="91" LogicalOp="Clustered Index Scan" NodeId="1" Parallel="false" PhysicalOp="Clustered Index Scan" EstimatedTotalSubtreeCost="0.00560432" TableCardinality="91">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="ContactName" />
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OutputList>
+                  <IndexScan Ordered="false" ForcedIndex="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="ContactName" />
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Customers]" Index="[PK_Customers]" IndexKind="Clustered" Storage="RowStore" />
+                    <Predicate>
+                      <ScalarOperator ScalarString="[master].[Northwind].[Customers].[Country]&lt;&gt;N'CANADA' AND [master].[Northwind].[Customers].[Country]&lt;&gt;N'USA'">
+                        <Logical Operation="AND">
+                          <ScalarOperator>
+                            <Compare CompareOp="NE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="N'CANADA'" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                          <ScalarOperator>
+                            <Compare CompareOp="NE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="N'USA'" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                        </Logical>
+                      </ScalarOperator>
+                    </Predicate>
+                  </IndexScan>
+                </RelOp>
+              </Sort>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="5" StatementEstRows="21" StatementId="5" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0178895" StatementText="&#xD;&#xA;&#xD;&#xA;SELECT DISTINCT Country FROM Northwind.Customers ORDER BY Country DESC" StatementType="SELECT" QueryHash="0x7BA72F398EA95488" QueryPlanHash="0x61DCCA8279390749" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="16" CompileTime="0" CompileCPU="0" CompileMemory="216">
+            <MemoryGrantInfo SerialRequiredMemory="512" SerialDesiredMemory="544" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="22" EstimateCPU="0.00102387" EstimateIO="0.0112613" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="21" LogicalOp="Distinct Sort" NodeId="0" Parallel="false" PhysicalOp="Sort" EstimatedTotalSubtreeCost="0.0178895">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+              </OutputList>
+              <MemoryFractions Input="1" Output="1" />
+              <Sort Distinct="true">
+                <OrderBy>
+                  <OrderByColumn Ascending="false">
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OrderByColumn>
+                </OrderBy>
+                <RelOp AvgRowSize="22" EstimateCPU="0.0002571" EstimateIO="0.00534722" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="91" EstimatedRowsRead="91" LogicalOp="Clustered Index Scan" NodeId="1" Parallel="false" PhysicalOp="Clustered Index Scan" EstimatedTotalSubtreeCost="0.00560432" TableCardinality="91">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OutputList>
+                  <IndexScan Ordered="false" ForcedIndex="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Customers]" Index="[PK_Customers]" IndexKind="Clustered" Storage="RowStore" />
+                  </IndexScan>
+                </RelOp>
+              </Sort>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="6" StatementEstRows="422.91" StatementId="6" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0169187" StatementText="&#xD;&#xA;&#xD;&#xA;/*&#xD;&#xA;3&#xD;&#xA;*/&#xD;&#xA;&#xD;&#xA;SELECT DISTINCT OrderID FROM Northwind.[Order Details] WHERE Quantity between 3 and 10" StatementType="SELECT" QueryHash="0x6AC0845442785F3A" QueryPlanHash="0x33ECAFAB0B4DC9AD" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="16" CompileTime="1" CompileCPU="1" CompileMemory="296">
+            <MemoryGrantInfo SerialRequiredMemory="0" SerialDesiredMemory="0" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="11" EstimateCPU="0.000480955" EstimateIO="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="422.91" LogicalOp="Aggregate" NodeId="0" Parallel="false" PhysicalOp="Stream Aggregate" EstimatedTotalSubtreeCost="0.0169187">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="OrderID" />
+              </OutputList>
+              <StreamAggregate>
+                <DefinedValues />
+                <GroupBy>
+                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="OrderID" />
+                </GroupBy>
+                <RelOp AvgRowSize="13" EstimateCPU="0.0025275" EstimateIO="0.0120139" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="539" EstimatedRowsRead="2155" LogicalOp="Clustered Index Scan" NodeId="1" Parallel="false" PhysicalOp="Clustered Index Scan" EstimatedTotalSubtreeCost="0.0145414" TableCardinality="2155">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="OrderID" />
+                  </OutputList>
+                  <IndexScan Ordered="true" ScanDirection="FORWARD" ForcedIndex="false" ForceSeek="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="OrderID" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Order Details]" Index="[PK_Order_Details]" IndexKind="Clustered" Storage="RowStore" />
+                    <Predicate>
+                      <ScalarOperator ScalarString="[master].[Northwind].[Order Details].[Quantity]&gt;=(3) AND [master].[Northwind].[Order Details].[Quantity]&lt;=(10)">
+                        <Logical Operation="AND">
+                          <ScalarOperator>
+                            <Compare CompareOp="GE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="Quantity" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="(3)" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                          <ScalarOperator>
+                            <Compare CompareOp="LE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Order Details]" Column="Quantity" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="(10)" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                        </Logical>
+                      </ScalarOperator>
+                    </Predicate>
+                  </IndexScan>
+                </RelOp>
+              </StreamAggregate>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+      <Statements>
+        <StmtSimple StatementCompId="7" StatementEstRows="40" StatementId="7" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound" CardinalityEstimationModelVersion="130" StatementSubTreeCost="0.0173778" StatementText=" &#xD;&#xA;&#xD;&#xA;SELECT CustomerID , Country FROM Northwind.Customers WHERE Country between 'b%' and  'h%' ORDER BY Country" StatementType="SELECT" ParameterizedText="(@1 varchar(8000),@2 varchar(8000))SELECT [CustomerID],[Country] FROM [Northwind].[Customers] WHERE [Country]&gt;=@1 AND [Country]&lt;=@2 ORDER BY [Country] ASC" QueryHash="0x82FFAC783091ACAA" QueryPlanHash="0x933AA0F063774BC1" RetrievedFromCache="false" SecurityPolicyApplied="false">
+          <StatementSetOptions ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="true" NUMERIC_ROUNDABORT="false" QUOTED_IDENTIFIER="true" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="24" CompileTime="1" CompileCPU="1" CompileMemory="192">
+            <MemoryGrantInfo SerialRequiredMemory="512" SerialDesiredMemory="544" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="104628" EstimatedPagesCached="26157" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="589480" />
+            <TraceFlags IsCompileTime="true">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp AvgRowSize="32" EstimateCPU="0.00043212" EstimateIO="0.0112613" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="40" LogicalOp="Sort" NodeId="0" Parallel="false" PhysicalOp="Sort" EstimatedTotalSubtreeCost="0.0173778">
+              <OutputList>
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="CustomerID" />
+                <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+              </OutputList>
+              <MemoryFractions Input="1" Output="1" />
+              <Sort Distinct="false">
+                <OrderBy>
+                  <OrderByColumn Ascending="true">
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OrderByColumn>
+                </OrderBy>
+                <RelOp AvgRowSize="32" EstimateCPU="0.0002571" EstimateIO="0.00534722" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row" EstimateRows="40" EstimatedRowsRead="91" LogicalOp="Clustered Index Scan" NodeId="1" Parallel="false" PhysicalOp="Clustered Index Scan" EstimatedTotalSubtreeCost="0.00560432" TableCardinality="91">
+                  <OutputList>
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="CustomerID" />
+                    <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                  </OutputList>
+                  <IndexScan Ordered="false" ForcedIndex="false" ForceScan="false" NoExpandHint="false" Storage="RowStore">
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="CustomerID" />
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                      </DefinedValue>
+                    </DefinedValues>
+                    <Object Database="[master]" Schema="[Northwind]" Table="[Customers]" Index="[PK_Customers]" IndexKind="Clustered" Storage="RowStore" />
+                    <Predicate>
+                      <ScalarOperator ScalarString="[master].[Northwind].[Customers].[Country]&gt;=N'b%' AND [master].[Northwind].[Customers].[Country]&lt;=N'h%'">
+                        <Logical Operation="AND">
+                          <ScalarOperator>
+                            <Compare CompareOp="GE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="N'b%'" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                          <ScalarOperator>
+                            <Compare CompareOp="LE">
+                              <ScalarOperator>
+                                <Identifier>
+                                  <ColumnReference Database="[master]" Schema="[Northwind]" Table="[Customers]" Column="Country" />
+                                </Identifier>
+                              </ScalarOperator>
+                              <ScalarOperator>
+                                <Const ConstValue="N'h%'" />
+                              </ScalarOperator>
+                            </Compare>
+                          </ScalarOperator>
+                        </Logical>
+                      </ScalarOperator>
+                    </Predicate>
+                  </IndexScan>
+                </RelOp>
+              </Sort>
+            </RelOp>
+            <ParameterList>
+              <ColumnReference Column="@2" ParameterDataType="varchar(8000)" ParameterCompiledValue="'h%'" />
+              <ColumnReference Column="@1" ParameterDataType="varchar(8000)" ParameterCompiledValue="'b%'" />
+            </ParameterList>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

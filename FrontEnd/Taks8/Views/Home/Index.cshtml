@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+
+}
+
+@Scripts.Render("~/Scripts/jquery-3.3.1.js")
+@Styles.Render("~/Content/bootstrap.min.css")
+
+<body>
+    <div style="height:50%; display:flex; justify-content:center; align-items:center;">
+        <div style="display: flex;  flex-direction: column;">
+            <button style="border:1px solid black; height:auto; background-color:white;" name="go">Get countries.</button>
+        </div>
+    </div>
+    <div id="content" name="content" style="display:flex; justify-content:center;">
+
+    </div>
+</body>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("button[name=go]").click(function () {
+            $.ajax(
+                {
+                    url: "@this.Url.Action("Task", "Home")",
+                    datatype: "json",
+                    data: { yes : "yes"}
+                })
+                .fail(function (data) {
+                    console.log(data.responseText);
+                })
+                .done(function (data) {
+
+                    $("#content").html(data);
+                })
+                .always(function (data) {
+                    console.log(data);
+                })
+
+        })
+
+
+    })
+</script>
+
+
